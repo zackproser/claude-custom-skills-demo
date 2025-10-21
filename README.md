@@ -2,9 +2,22 @@
 
 Generates a minimalist image with Google's image model, then animates it using the latest video model.
 
+### Demo Outputs
+
+Image:
+
+![Demo Image](assets/demo-image.png)
+
+Video:
+
+<video controls width="640">
+  <source src="assets/demo-video.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
 ### Setup
 
-1. Create `.env` from example:
+1. Create `.env` from example and set your API key (get one from [Google AI Studio](https://aistudio.google.com/)):
    ```bash
    cp .env.example .env
    # set GOOGLE_API_KEY
