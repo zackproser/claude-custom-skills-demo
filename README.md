@@ -10,10 +10,11 @@ Image:
 
 Video:
 
-<video controls width="640">
-  <source src="assets/demo-video.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
+- [Watch the demo video on YouTube](https://youtu.be/br81_vMItXs)
+
+Optional thumbnail link:
+
+[![Demo Video](https://img.youtube.com/vi/br81_vMItXs/hqdefault.jpg)](https://youtu.be/br81_vMItXs)
 
 ### Quickstart (Personal Skill)
 
