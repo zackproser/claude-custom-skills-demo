@@ -10,7 +10,7 @@ Image:
 
 Video:
 
-<iframe width="640" height="360" src="https://www.youtube.com/embed/br81_vMItXs" title="Animated Image Skill Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![Animated Image Skill Demo](https://img.youtube.com/vi/br81_vMItXs/0.jpg)](https://www.youtube.com/watch?v=br81_vMItXs "Animated Image Skill Demo")
 
 ### Quickstart (Personal Skill)
 
