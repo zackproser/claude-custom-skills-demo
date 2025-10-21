@@ -15,75 +15,33 @@ Video:
   Your browser does not support the video tag.
 </video>
 
-### Setup
+### Quickstart (Personal Skill)
 
-1. Create `.env` from example and set your API key (get one from [Google AI Studio](https://aistudio.google.com/)):
+1. Get an API key from [Google AI Studio](https://aistudio.google.com/).
+2. Install the skill to your personal Claude skills directory:
    ```bash
-   cp .env.example .env
-   # set GOOGLE_API_KEY
+   SKILL=animated-image
+   mkdir -p ~/.claude/skills
+   rsync -a skills/$SKILL ~/.claude/skills/$SKILL
+   cd ~/.claude/skills/$SKILL && npm i
+   cp -n .env.example .env  # then edit .env and set GOOGLE_API_KEY
    ```
-
-2. Install deps:
-   ```bash
-   npm install
-   ```
+3. Restart Claude Code so it discovers your personal skills.
 
 ### Usage
 
-- Generate an image (PNG):
-  ```bash
-  npm run generate:image -- "A wooden ball on a ramp, clean primary colors, minimalist, clean lines."
-  ```
+In Claude Code:
 
-- Generate a video (MP4) from an existing image:
-  ```bash
-  npm run generate:video -- outputs/image-<timestamp>.png "Animate the scene to show the wooden ball rolling down the ramp."
-  ```
+- Ask: "Which skills do you have?" and confirm it lists `animated-image`.
+- Then: "Use the animated-image skill to create a [your prompt], and animate the most obvious motion."
 
-- End-to-end demo (image → video):
-  ```bash
-  npm run demo -- "A wooden ball on a ramp, clean primary colors, minimalist, clean lines." "Animate the scene to show the wooden ball rolling down the ramp."
-  ```
+Outputs are saved to `~/.claude/outputs/` by default (or `OUTPUT_DIR` if set in `.env`).
 
-Outputs are saved in `outputs/`.
+### Troubleshooting
 
-### Claude Skill
-
-Use the folder `skills/animated-image` which contains `SKILL.md` per the Help Center guidance. The packaging script zips the folder contents so `SKILL.md` is at the ZIP root, matching the official examples.
-
-Packaging (per Help Center and examples):
-- `SKILL.md` must be at the root of the ZIP.
-- Run the packaging script to produce a compliant archive.
-- Reference: https://support.claude.com/en/articles/12512198-how-to-create-custom-skills
-
-### Packaging Script
-
-Create a compliant archive with:
-```bash
-npm run package:skill
-```
-Output:
-- `dist/animated-image.zip` (contains SKILL.md at the root)
-
-### Demo-only: embed API key in archive
-
-For the offsite demo, you can embed a `.env` inside the ZIP so it works out-of-the-box:
-
-```bash
-# Prefer a separate env var for demos
-DEMO_GOOGLE_API_KEY=sk-xxxxx npm run package:skill
-# or fallback to GOOGLE_API_KEY if set in your shell
-GOOGLE_API_KEY=sk-xxxxx npm run package:skill
-```
-
-The packaging script will place a `.env` with `GOOGLE_API_KEY` and `OUTPUT_DIR=outputs` at the ZIP root, then remove it locally after zipping.
-
-Security note: this is for demo purposes only. Do not distribute real secrets in archives.
-
-### Notes
-
-- Requires Google API access to the image and video models.
-- If no animation prompt is supplied, the demo uses a default animation.
+- If you see a module not found error, run `cd ~/.claude/skills/animated-image && npm i`.
+- If the skill doesn’t appear, restart Claude Code.
+- Ensure `.env` has `GOOGLE_API_KEY` (or set it in your shell) and try again.
 
 
 
