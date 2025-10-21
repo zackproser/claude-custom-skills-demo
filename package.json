@@ -1,0 +1,21 @@
+{
+  "name": "claude-skill-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate:image": "node scripts/generateImage.mjs",
+    "generate:video": "node scripts/generateVideo.mjs",
+    "demo": "node scripts/demo.mjs",
+    "package:skill": "set -e; mkdir -p dist; rm -f dist/animated-image.zip; SKILL_DIR=skills/animated-image; TEMP_ENV=0; if [ -f \"$SKILL_DIR/.env\" ]; then :; elif [ -f .env ]; then cp .env \"$SKILL_DIR/.env\"; TEMP_ENV=1; fi; (cd \"$SKILL_DIR\" && zip -rq ../../dist/animated-image.zip .); if [ \"$TEMP_ENV\" = 1 ]; then rm -f \"$SKILL_DIR/.env\"; fi; echo Packaged: dist/animated-image.zip"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "node-fetch": "^3.3.2"
+  }
+}

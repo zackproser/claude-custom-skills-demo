@@ -1,0 +1,14 @@
+{
+  "name": "animated-image-skill",
+  "private": true,
+  "type": "module",
+  "version": "0.0.1",
+  "description": "Generate a minimalist image and animate it into a short video.",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "@google/genai": "^0.11.0"
+  }
+}
+
+
